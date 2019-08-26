@@ -1,0 +1,27 @@
+{
+  "name": "brandshop-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "*.json"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ToSPP/Brandshop-project.git"
+  },
+  "author": "Maxim Borodin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ToSPP/Brandshop-project/issues"
+  },
+  "homepage": "https://github.com/ToSPP/Brandshop-project#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

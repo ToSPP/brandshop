@@ -1,0 +1,182 @@
+[
+  {
+    "id_product": 1,
+    "product_name": "Kenzo Tiger T-Shirt",
+    "category": "Accessories",
+    "brand": "Dolce & Gabbana",
+    "designer": "Tommy Hilfiger",
+    "img": "product_1.jpg",
+    "price": 93.50,
+    "rating": 5
+  },
+  {
+    "id_product": 2,
+    "product_name": "Off-White T-Shirt",
+    "category": "Bags",
+    "brand": "Dolce & Gabbana",
+    "designer": "Carolina Herrera",
+    "img": "product_2.jpg",
+    "price": 300,
+    "rating": 5
+  },
+  {
+    "id_product": 3,
+    "product_name": "Nike Tokyo Sweater",
+    "category": "Denim",
+    "brand": "Calvin Klein",
+    "designer": "Kate Spade",
+    "img": "product_3.jpg",
+    "price": 166.20,
+    "rating": 5
+  },
+  {
+    "id_product": 4,
+    "product_name": "Lemaire Kaftan Jacket",
+    "category": "Hoodies & Sweatshirts",
+    "brand": "Dolce & Gabbana",
+    "designer": "Vivienne Westwood",
+    "img": "product_4.jpg",
+    "price": 903.40,
+    "rating": 5
+  },
+  {
+    "id_product": 5,
+    "product_name": "Chanel Tweed Jacket",
+    "category": "Jackets & Coats",
+    "brand": "Giorgio Armani",
+    "designer": "Tommy Hilfiger",
+    "img": "product_5.jpg",
+    "price": 1472,
+    "rating": 5
+  },
+  {
+    "id_product": 6,
+    "product_name": "Superdry Graphic Top",
+    "category": "Pants",
+    "brand": "Giorgio Armani",
+    "designer": "Carolina Herrera",
+    "img": "product_6.jpg",
+    "price": 30,
+    "rating": 5
+  },
+  {
+    "id_product": 7,
+    "product_name": "Fendi Jersey Jacket",
+    "category": "Polos",
+    "brand": "Zara",
+    "designer": "Tommy Hilfiger",
+    "img": "product_7.jpg",
+    "price": 550,
+    "rating": 5
+  },
+  {
+    "id_product": 8,
+    "product_name": "Burberry Logo Coat",
+    "category": "Shirts",
+    "brand": "Zara",
+    "designer": "Kate Spade",
+    "img": "product_8.jpg",
+    "price": 450,
+    "rating": 5
+  },
+  {
+    "id_product": 9,
+    "product_name": "Kenzo Tiger T-Shirt",
+    "category": "Shoes",
+    "brand": "Dolce & Gabbana",
+    "designer": "Kate Spade",
+    "img": "product_9.png",
+    "price": 135,
+    "rating": 4
+  },
+  {
+    "id_product": 10,
+    "product_name": "HB Zipped Sweats",
+    "category": "Shorts",
+    "brand": "Calvin Klein",
+    "designer": "Carolina Herrera",
+    "img": "product_10.png",
+    "price": 120,
+    "rating": 4
+  },
+  {
+    "id_product": 11,
+    "product_name": "Sandro Technical Padded",
+    "category": "Sweaters & Knits",
+    "brand": "Calvin Klein",
+    "designer": "Kate Spade",
+    "img": "product_11.png",
+    "price": 288,
+    "rating": 4
+  },
+  {
+    "id_product": 12,
+    "product_name": "Rossignol Corentin Sweat",
+    "category": "T-Shirts",
+    "brand": "Giorgio Armani",
+    "designer": "Vivienne Westwood",
+    "img": "product_12.png",
+    "price": 263,
+    "rating": 4
+  },
+  {
+    "id_product": 13,
+    "product_name": "Moncler Gui Gilet",
+    "category": "Tanks",
+    "brand": "Dolce & Gabbana",
+    "designer": "Kate Spade",
+    "img": "product_13.png",
+    "price": 377,
+    "rating": 4
+  },
+  {
+    "id_product": 14,
+    "product_name": "Aries Rose Jacket",
+    "category": "T-Shirts",
+    "brand": "Zara",
+    "designer": "Tommy Hilfiger",
+    "img": "product_14.png",
+    "price": 400,
+    "rating": 4
+  },
+  {
+    "id_product": 15,
+    "product_name": "Lace Midi Dress",
+    "category": "Dresses",
+    "brand": "Zara",
+    "designer": "Kate Spade",
+    "img": "product_15.png",
+    "price": 45,
+    "rating": 3
+  },
+  {
+    "id_product": 16,
+    "product_name": "Fishtail Maxi Dress",
+    "category": "Dresses",
+    "brand": "Dolce & Gabbana",
+    "designer": "Tommy Hilfiger",
+    "img": "product_16.png",
+    "price": 400,
+    "rating": 3
+  },
+  {
+    "id_product": 17,
+    "product_name": "Bodycon Midi Dress",
+    "category": "Dresses",
+    "brand": "Zara",
+    "designer": "Kate Spade",
+    "img": "product_17.png",
+    "price": 400,
+    "rating": 3
+  },
+  {
+    "id_product": 18,
+    "product_name": "Wrap Midi Dress",
+    "category": "Dresses",
+    "brand": "Giorgio Armani",
+    "designer": "Carolina Herrera",
+    "img": "product_18.png",
+    "price": 400,
+    "rating": 3
+  }
+]

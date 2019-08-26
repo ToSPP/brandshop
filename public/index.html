@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Brandshop -- Home</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/brand-bem.css">
+</head>
+<body>
+<div id="app">
+  <header class="header">
+    <div class="container header__container">
+      <div class="header__panel-left">
+        <a href="index.html" class="logo">
+          <img src="img/logo.png" alt="logo" class="logo__img">
+          <span class="logo__title">BRAN<span class="logo__title_mark">D</span></span>
+        </a>
+        <form action="#" class="search-form header__search-form">
+          <div class="search-form__btn search-form__btn-drop">
+            <span class="caret-down search-form__btn-drop-caret">Browse</span>
+            <div class="sub-menu search-form__sub-menu">
+              <span class="sub-menu__arrow sub-menu__arrow_search-form"></span>
+              <div class="sub-menu__col">
+                <h3 class="sub-menu__h3">Women</h3>
+                <ul class="sub-menu__ul">
+                  <li class="sub-menu__li"><a href="#" class="sub-menu__link">Dresses</a></li>
+                  <li class="sub-menu__li"><a href="#" class="sub-menu__link">Tops</a></li>
+                  <li class="sub-menu__li"><a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+                  <li class="sub-menu__li"><a href="#" class="sub-menu__link">Jackets/Coats</a></li>
+                  <li class="sub-menu__li"><a href="#" class="sub-menu__link">Blazers</a></li>
+                  <li class="sub-menu__li"><a href="#" class="sub-menu__link">Denim</a></li>
+                  <li class="sub-menu__li"><a href="#" class="sub-menu__link">Leggings/Pants</a></li>
+                  <li class="sub-menu__li"><a href="#" class="sub-menu__link">Skirts/Shorts</a></li>
+                  <li class="sub-menu__li"><a href="#" class="sub-menu__link">Accessories</a></li>
+                </ul>
+                <h3 class="sub-menu__h3">men</h3>
+                <ul class="sub-menu__ul">
+                  <li class="sub-menu__li"><a href="#" class="sub-menu__link">Tees/Tank tops</a></li>
+                  <li class="sub-menu__li"><a href="#" class="sub-menu__link">Shirts/Polos</a></li>
+                  <li class="sub-menu__li"><a href="#" class="sub-menu__link">Sweaters</a></li>
+                  <li class="sub-menu__li"><a href="#" class="sub-menu__link">Sweatshirts/Hoodies</a></li>
+                  <li class="sub-menu__li"><a href="#" class="sub-menu__link">Blazers</a></li>
+                  <li class="sub-menu__li"><a href="#" class="sub-menu__link">Jackets/vests</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <input type="text" class="input input__search" placeholder="Search for Item..." required>
+          <button type="submit" class="btn search-form__btn search-form__btn-submit"><i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+      <div class="header__panel-right">
+        <cart module="block" ref="cart"></cart>
+        <button class="btn btn__primary btn__primary_my-account">
+          <span class="caret-down btn__primary_my-account-caret">My Account</span></button>
+      </div>
+    </div>
+  </header>
+  <nav class="navigation">
+    <div class="container navigation__container">
+      <ul class="top-menu">
+        <li class="top-menu__item"><a href="index.html" class="top-menu__link">Home</a></li>
+        <li class="top-menu__item"><a href="products.html" class="top-menu__link">Man</a>
+          <div class="sub-menu top-menu__sub-menu_left">
+            <span class="sub-menu__arrow top-menu__sub-menu_arrow-left"></span>
+            <div class="sub-menu__col">
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Jackets/Coats</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Blazers</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Denim</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Leggings/Pants</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Skirts/Shorts</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Accessories</a></li>
+              </ul>
+            </div>
+            <div class="sub-menu__col">
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Jackets/Coats</a></li>
+              </ul>
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+              </ul>
+            </div>
+            <div class="sub-menu__col">
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Jackets/Coats</a></li>
+              </ul>
+              <a href="#" class="sub-menu__banner">
+                <img src="img/super_sale.png" alt="Super Sale">
+                <span class="sub-menu__banner-text">Super<br>sale!</span></a>
+            </div>
+          </div>
+        </li>
+        <li class="top-menu__item"><a href="products.html" class="top-menu__link">Women</a>
+          <div class="sub-menu top-menu__sub-menu_left">
+            <span class="sub-menu__arrow top-menu__sub-menu_arrow-left"></span>
+            <div class="sub-menu__col">
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Jackets/Coats</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Blazers</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Denim</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Leggings/Pants</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Skirts/Shorts</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Accessories</a></li>
+              </ul>
+            </div>
+            <div class="sub-menu__col">
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Jackets/Coats</a></li>
+              </ul>
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="top-menu__item"><a href="products.html" class="top-menu__link">Kids</a>
+          <div class="sub-menu top-menu__sub-menu_left">
+            <span class="sub-menu__arrow top-menu__sub-menu_arrow-left"></span>
+            <div class="sub-menu__col">
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Jackets/Coats</a></li>
+              </ul>
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+              </ul>
+            </div>
+            <div class="sub-menu__col">
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Jackets/Coats</a></li>
+              </ul>
+              <a href="#" class="sub-menu__banner">
+                <img src="img/super_sale.png" alt="Super Sale">
+                <span class="sub-menu__banner-text">Super<br>sale!</span></a>
+            </div>
+          </div>
+        </li>
+        <li class="top-menu__item"><a href="products.html" class="top-menu__link">Accoseriese</a>
+          <div class="sub-menu top-menu__sub-menu_right">
+            <span class="sub-menu__arrow top-menu__sub-menu_arrow-right"></span>
+            <div class="sub-menu__col">
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Jackets/Coats</a></li>
+              </ul>
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="top-menu__item"><a href="products.html" class="top-menu__link">Featured</a>
+          <div class="sub-menu top-menu__sub-menu_right">
+            <span class="sub-menu__arrow top-menu__sub-menu_arrow-right"></span>
+            <div class="sub-menu__col">
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Jackets/Coats</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Blazers</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Denim</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Leggings/Pants</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Skirts/Shorts</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Accessories</a></li>
+              </ul>
+            </div>
+            <div class="sub-menu__col">
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Jackets/Coats</a></li>
+              </ul>
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+              </ul>
+            </div>
+            <div class="sub-menu__col">
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Jackets/Coats</a></li>
+              </ul>
+              <a href="#" class="sub-menu__banner">
+                <img src="img/super_sale.png" alt="Super Sale">
+                <span class="sub-menu__banner-text">Super<br>sale!</span></a>
+            </div>
+          </div>
+        </li>
+        <li class="top-menu__item"><a href="products.html" class="top-menu__link">Hot Deals</a>
+          <div class="sub-menu top-menu__sub-menu_right">
+            <span class="sub-menu__arrow top-menu__sub-menu_arrow-right"></span>
+            <div class="sub-menu__col">
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Jackets/Coats</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Blazers</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Denim</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Leggings/Pants</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Skirts/Shorts</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Accessories</a></li>
+              </ul>
+            </div>
+            <div class="sub-menu__col">
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Jackets/Coats</a></li>
+              </ul>
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+              </ul>
+            </div>
+            <div class="sub-menu__col">
+              <h3 class="sub-menu__h3">Women</h3>
+              <ul class="sub-menu__ul">
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Dresses</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Tops</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Sweaters/Knits</a></li>
+                <li class="sub-menu__li">
+                  <a href="#" class="sub-menu__link">Jackets/Coats</a></li>
+              </ul>
+              <a href="#" class="sub-menu__banner">
+                <img src="img/super_sale.png" alt="Super Sale">
+                <span class="sub-menu__banner-text">Super<br>sale!</span></a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="promo">
+    <div class="container promo__container promo__bg">
+      <div class="promo__text">
+        <h3 class="promo__text_h3">THE BRAND</h3>OF LUXERIOUS <span class="color_pink">FASHION</span>
+      </div>
+    </div>
+  </div>
+  <div class="category">
+    <div class="container category__container">
+      <a href="products.html" class="banner banner__for-men" title="For Men">
+        <div class="badge">hOT dEAL
+          <h3 class="badge__h3 color-pink">FOR MEN</h3>
+        </div>
+      </a>
+      <a href="products.html" class="banner banner__accesories" title="Accesories">
+        <div class="badge">LUXIROUS & trendy
+          <h3 class="badge__h3 color-pink">ACCESORIES</h3>
+        </div>
+      </a>
+      <a href="products.html" class="banner banner_small banner__women" title="For Women">
+        <div class="badge">30% offer
+          <h3 class="badge__h3 color-pink">women</h3>
+        </div>
+      </a>
+      <a href="products.html" class="banner banner_big banner__for-kids" title="For Kids">
+        <div class="badge">new arrivals
+          <h3 class="badge__h3 color-pink">FOR kids</h3>
+        </div>
+      </a>
+    </div>
+  </div>
+  <section class="products">
+    <div class="container products__container">
+      <div class="products__header">
+        <h3 class="products__h3">Fetured Items</h3>
+        <h5 class="products__h5">Shop for items based on what we featured in this week</h5>
+      </div>
+      <products class-name="featured"></products>
+      <div class="products__footer">
+        <a href="products.html" class="btn btn__primary btn__product">
+          <span class="arrow-right">Browse All Product</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <div class="feature">
+    <div class="container feature__container">
+      <div class="feature__banner">
+        <div class="feature__banner-text">
+          <h3 class="feature__banner-text-h3">30%<span class="color-pink">OFFER</span>
+          </h3>FOR WOMEN
+        </div>
+      </div>
+      <div class="feature__options">
+        <article class="feature__box">
+          <div class="feature__box-img feature__box-img_loc">
+            <img src="img/feature_delivery.svg" alt="Free delivery">
+          </div>
+          <div class="feature__box-desc">
+            <h3 class="feature__box-desc-h3">Free Delivery</h3>Worldwide delivery on all. Authorit tively morph
+            next-generation innov tion with extensive models.
+          </div>
+        </article>
+        <article class="feature__box">
+          <div class="feature__box-img feature__box-img_loc">
+            <img src="img/feature_discount.svg" alt="Sales & discounts">
+          </div>
+          <div class="feature__box-desc">
+            <h3 class="feature__box-desc-h3">Sales & discounts</h3>Worldwide delivery on all. Authorit tively morph
+            next-generation innov tion with extensive models.
+          </div>
+        </article>
+        <article class="feature__box">
+          <div class="feature__box-img feature__box-img_loc">
+            <img src="img/feature_quality.svg" alt="Quality assurance">
+          </div>
+          <div class="feature__box-desc">
+            <h3 class="feature__box-desc-h3">Quality assurance</h3>Worldwide delivery on all. Authorit tively morph
+            next-generation innov tion with extensive models.
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+  <div class="subscribe">
+    <div class="container subscribe__container">
+      <div class="subscribe__panel subscribe__panel-reviews">
+        <div class="reviews">
+          <div class="reviews__avatar">
+            <img src="img/avatar.png" alt="avatar">
+          </div>
+          <div class="reviews__box">
+            <div class="reviews__msg"><span class="reviews__msg_italic">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”</span>
+              <h3 class="reviews__name">Bin Burhan</h3>
+              <span class="reviews__country">Dhaka, Bd</span>
+            </div>
+            <div class="reviews__toggle">
+              <a href="#" class="reviews__btn"></a>
+              <a href="#" class="reviews__btn reviews__btn_active"></a>
+              <a href="#" class="reviews__btn"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="subscribe__panel subscribe__panel-form">
+        <div class="subscribe__form">
+          <h3 class="subscribe__form-title">SUBSCRIBE</h3>
+          FOR OUR NEWLETTER AND PROMOTION
+          <form action="#">
+            <input type="email" class="input subscribe__input" placeholder="Enter Your Email" required>
+            <button type="submit" class="btn btn__primary btn__subscribe">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-menu">
+    <div class="container bottom-menu__container">
+      <div class="bottom-menu__panel-left">
+        <a href="index.html" class="logo">
+          <img src="img/logo.png" alt="logo" class="logo__img">
+          <span class="logo__title">BRAN<span class="logo__title_mark">D</span></span>
+        </a>
+        <p class="bottom-menu__par">
+          Objectively transition extensive data rather than cross functional solutions. Monotonectally syndicate
+          multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array of
+          processes and cross-unit partnerships.</p>
+        <p class="bottom-menu__par">Efficiently plagiarize 24/365 action items and focused infomediaries.
+          Distinctively seize superior initiatives for wireless technologies. Dynamically optimize.</p>
+      </div>
+      <div class="bottom-menu__panel-right">
+        <div class="bottom-menu__col">
+          <h3 class="bottom-menu__h3">COMPANY</h3>
+          <ul class="bottom-menu__ul">
+            <li class="bottom-menu__li">
+              <a href="index.html" class="bottom-menu__link">Home</a></li>
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">Shop</a></li>
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">About</a></li>
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">How It Works</a></li>
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">Contact</a></li>
+          </ul>
+        </div>
+        <div class="bottom-menu__col">
+          <h3 class="bottom-menu__h3">INFORMATION</h3>
+          <ul class="bottom-menu__ul">
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">Tearms & Condition</a></li>
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">Privacy Policy</a></li>
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">How to Buy</a></li>
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">How to Sell</a></li>
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">Promotion</a></li>
+          </ul>
+        </div>
+        <div class="bottom-menu__col">
+          <h3 class="bottom-menu__h3">SHOP CATEGORY</h3>
+          <ul class="bottom-menu__ul">
+            <li class="bottom-menu__li">
+              <a href="products.html" class="bottom-menu__link">Men</a></li>
+            <li class="bottom-menu__li">
+              <a href="products.html" class="bottom-menu__link">Women</a></li>
+            <li class="bottom-menu__li">
+              <a href="products.html" class="bottom-menu__link">Child</a></li>
+            <li class="bottom-menu__li">
+              <a href="products.html" class="bottom-menu__link">Apparel</a></li>
+            <li class="bottom-menu__li">
+              <a href="products.html" class="bottom-menu__link">Brows All</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer footer__margin">
+    <div class="container footer__container">
+      <div class="footer__copy">&copy; 2017 Brand All Rights Reserved.</div>
+      <div class="socials">
+        <a href="#" class="socials__btn socials__btn_enabled">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="socials__btn socials__btn_enabled">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <div class="socials__btn socials__btn_disabled">
+          <i class="fab fa-linkedin-in"></i>
+        </div>
+        <a href="#" class="socials__btn socials__btn_enabled">
+          <i class="fab fa-pinterest-p"></i>
+        </a>
+        <a href="#" class="socials__btn socials__btn_enabled">
+          <i class="fab fa-google-plus-g"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/ProductsComponent.js"></script>
+<script src="js/CartComponent.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

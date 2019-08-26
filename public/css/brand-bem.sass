@@ -1,0 +1,2067 @@
+@charset "utf-8"
+
+/** List of Contents
+ *  ==========================================================================
+
+  1. Mixins
+  2. Variables
+  3. Base
+  4. Header
+    4.1. Logo
+    4.2. Search
+    4.3. Cart Menu
+  5. Navigation
+    5.1. Top-menu
+    5.2. Sub-menu
+  6. Promo
+  7. Category
+    7.1. Banner
+  8. Featured products
+    8.1. Product
+  9. Features
+  10. Subscribe
+    10.1. Reviews
+    10.2. Subscribe form
+  11. Bottom menu
+  12. Footer
+    12.1. Socials
+  13. Breadcrumbs
+  14. Catalog
+    14.1. Catalog-Menu
+    14.2. Filters
+    14.3. Pagination
+  15. Slider
+  16. Product description
+    16.1. Product properties
+    16.2. Product options
+  17. Other offers
+  18. Shopping Cart
+  19. Checkout
+  20. Buttons
+    20.1. My account
+    20.2. Search
+    20.3. Cart Menu
+    20.4. Featured products
+    20.5. Reviews
+    20.6. Subscribe form
+    20.7. Socials
+    20.8. Pagination (view-all)
+    20.9. Product options
+    20.10. Shopping Cart
+    20.11. Checkout
+  21. Misc
+
+   ========================================================================== */
+
+/* 1. Mixins
+   ========================================================================== */
+
+@mixin flexbox
+  display: -webkit-box
+  display: -moz-box
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+
+@mixin flex-direction($value: row)
+  @if $value == row-reverse
+    -webkit-box-direction: reverse
+    -webkit-box-orient: horizontal
+    -moz-box-direction: reverse
+    -moz-box-orient: horizontal
+  @else if $value == column
+    -webkit-box-direction: normal
+    -webkit-box-orient: vertical
+    -moz-box-direction: normal
+    -moz-box-orient: vertical
+  @else if $value == column-reverse
+    -webkit-box-direction: reverse
+    -webkit-box-orient: vertical
+    -moz-box-direction: reverse
+    -moz-box-orient: vertical
+  @else
+    -webkit-box-direction: normal
+    -webkit-box-orient: horizontal
+    -moz-box-direction: normal
+    -moz-box-orient: horizontal
+  -webkit-flex-direction: $value
+  -ms-flex-direction: $value
+  flex-direction: $value
+
+@mixin justify-content($value: flex-start)
+  @if $value == flex-start
+    -webkit-box-pack: start
+    -moz-box-pack: start
+    -ms-flex-pack: start
+  @else if $value == flex-end
+    -webkit-box-pack: end
+    -moz-box-pack: end
+    -ms-flex-pack: end
+  @else if $value == space-between
+    -webkit-box-pack: justify
+    -moz-box-pack: justify
+    -ms-flex-pack: justify
+  @else
+    -webkit-box-pack: $value
+    -moz-box-pack: $value
+    -ms-flex-pack: $value
+  -webkit-justify-content: $value
+  justify-content: $value
+
+@mixin align-content($value: stretch)
+  -webkit-align-content: $value
+  @if $value == flex-start
+    -ms-flex-line-pack: start
+  @else if $value == flex-end
+    -ms-flex-line-pack: end
+  @else
+    -ms-flex-line-pack: $value
+  align-content: $value
+
+@mixin align-items($value: stretch)
+  @if $value == flex-start
+    -webkit-box-align: start
+    -moz-box-align: start
+    -ms-flex-align: start
+  @else if $value == flex-end
+    -webkit-box-align: end
+    -moz-box-align: end
+    -ms-flex-align: end
+  @else
+    -webkit-box-align: $value
+    -moz-box-align: $value
+    -ms-flex-align: $value
+  -webkit-align-items: $value
+  align-items: $value
+
+@mixin flex-wrap($value: nowrap)
+  -webkit-flex-wrap: $value
+  @if $value == nowrap
+    -ms-flex-wrap: none
+  @else
+    -ms-flex-wrap: $value
+  flex-wrap: $value
+
+@mixin flex-grow($int: 1)
+  -webkit-box-flex: $int
+  -moz-box-flex: $int
+  -webkit-flex-grow: $int
+  -ms-flex: $int
+  flex-grow: $int
+
+@mixin flex-shrink($int: 0)
+  -webkit-flex-shrink: $int
+  -moz-flex-shrink: $int
+  -ms-flex: $int
+  flex-shrink: $int
+
+@mixin flex-basis($value: auto)
+  -webkit-flex-basis: $value
+  flex-basis: $value
+
+@mixin flex($fg: 1, $fs: 0, $fb: auto)
+  $fg-boxflex: $fg
+  @if type-of($fg) == 'list'
+    $fg-boxflex: nth($fg, 1)
+  -webkit-box: $fg-boxflex
+  -moz-box: $fg-boxflex
+  -webkit-flex: $fg $fs $fb
+  -ms-flex: $fg $fs $fb
+  flex: $fg $fs $fb
+
+@mixin flex-flow($values: (row nowrap))
+  -webkit-flex-flow: $values
+  -ms-flex-flow: $values
+  flex-flow: $values
+
+@mixin awesome-free
+  font-family: "Font Awesome 5 Free"
+  font-weight: 900
+
+@mixin awesome-brands
+  font-family: "Font Awesome 5 Brands"
+  font-weight: 400
+
+
+/* 2. Variables
+   ========================================================================== */
+
+$primary-text: #222222
+$color-pink: #f16d7f
+
+/* 3. Base
+   ========================================================================== */
+
+html
+  height: 100%
+
+body
+  min-height: 100%
+  font-family: 'Lato', sans-serif
+  font-size: 14px
+  font-weight: 400
+  color: $primary-text
+  @include flexbox
+  @include flex-direction(column)
+  @include justify-content(space-between)
+
+.container
+  width: 1140px
+
+/* 4. Header
+   ========================================================================== */
+
+.header
+  height: 100px
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.17)
+  border: 1px solid #ececec
+  background-color: #ffffff
+  @include flexbox
+  @include align-items(center)
+
+.header__container
+  margin: 0 auto
+  @include flexbox
+  @include justify-content(space-between)
+  @include align-items(center)
+
+.header__panel-left,
+.header__panel-right
+  position: relative
+
+.header__panel-left
+  @include flexbox
+  @include justify-content(flex-start)
+  @include align-items(center)
+
+.header__panel-right
+  @include flexbox
+  @include justify-content(flex-end)
+  @include align-items(flex-end)
+
+/* 4.1. Logo
+   ========================================================================== */
+
+.logo
+  text-decoration: none
+  @include flexbox
+  @include align-items(center)
+
+.logo__img
+  margin-right: 13px
+
+.logo__title
+  font-weight: 300
+  font-size: 27px
+  color: $primary-text
+
+.logo__title_mark
+  font-weight: 400
+  @extend .color-pink
+
+/* 4.2. Search
+   ========================================================================== */
+
+.search-form
+  display: flex
+  margin: 0
+
+.header__search-form
+  margin-left: 37px
+
+.search-form__sub-menu
+  top: 38px
+  left: 0
+
+.input__search
+  width: 280px
+  height: 38px
+  margin-left: -2px
+  margin-right: -1px
+  border: 1px solid #e6e6e6
+  padding-left: 16px
+  padding-right: 16px
+  outline: none
+  &::placeholder
+    color: #a4a4a4
+    font-weight: 300
+
+/* 4.3. Cart Menu
+   ========================================================================== */
+
+.cart
+  position: relative
+
+.cart__pos
+  margin-right: 26px
+
+.cart__qty
+  @include flexbox
+  @include justify-content(center)
+  @include align-items(center)
+  width: 19px
+  height: 19px
+  position: absolute
+  border-radius: 9px
+  font-size: 12px
+  font-weight: 700
+  color: #ffffff
+  background-color: $color-pink
+
+.cart__qty_pos
+  top: -6px
+  right: -8px
+
+.cart__block
+  @include flexbox
+  position: absolute
+  border: 1px solid #e8e8e8
+  border-radius: 5px
+  background-color: #fff
+  box-shadow: 1px 1px 3px #ddd
+  z-index: 100
+  text-align: left
+
+.cart__sub-menu
+  top: 36px
+  left: -14px
+
+.cart__block-arrow
+  @extend .sub-menu__arrow
+  left: 35px
+
+.cart__column
+  padding: 0 16px 15px
+  @include flexbox
+  @include flex-direction(column)
+  @include justify-content(space-between)
+  @include flex(1, 1, 0%)
+
+.cart__list
+  margin: 0
+  padding: 0
+  list-style-type: none
+
+.cart__item
+  @include flexbox
+  padding: 16px 0
+  border-bottom: 1px solid #e8e8e8
+
+.cart__item-desc
+  margin: 0 14px
+  line-height: 21px
+
+.cart__item-title
+  display: inline-block
+  margin: 3px 0
+  color: $primary-text
+  font-size: 12px
+  font-weight: 700
+  line-height: 1.2em
+  text-transform: uppercase
+  text-decoration: none
+  &:hover
+    color: $color-pink
+
+.cart__item-total
+  color: $color-pink
+  margin: 0
+
+.cart__item-remove
+  color: #c0c0c0
+  font-size: 16px
+  line-height: 85px
+  text-decoration: none
+  transition: color .3s
+  &::after
+    @include awesome-free
+    content: "\f057"
+  &:hover
+    color: $primary-text
+
+.cart__total-block
+  @include flexbox
+  @include justify-content(space-between)
+  padding-top: 18px
+  padding-bottom: 23px
+  font-size: 16px
+  font-weight: 700
+  text-transform: uppercase
+
+.cart__empty
+  padding-top: 18px
+  padding-bottom: 15px
+  text-align: center
+  font-size: 16px
+  font-weight: 700
+  text-transform: uppercase
+
+/* 5. Navigation
+   ========================================================================== */
+
+.navigation
+  background-color: #fff
+
+.navigation__container
+  margin: 0 auto
+
+/* 5.1. Top-menu
+   ========================================================================== */
+
+.top-menu
+  @include flexbox
+  @include justify-content(center)
+  @include align-items(center)
+  margin: 0
+  padding: 0
+  list-style-type: none
+
+.top-menu__item
+  position: relative
+  &:hover > .sub-menu
+    visibility: visible
+    opacity: 1
+
+.top-menu__link
+  display: block
+  padding: 17px 22px
+  text-decoration: none
+  color: $primary-text
+  font-weight: 700
+  text-transform: uppercase
+  &:hover
+    color: $color-pink
+
+.top-menu__link_active
+  box-shadow: inset 0 -3px #ef5b70
+
+.top-menu__sub-menu_left,
+.top-menu__sub-menu_right
+  top: 45px
+
+.top-menu__sub-menu_left
+  left: -40px
+
+.top-menu__sub-menu_right
+  right: -40px
+
+.top-menu__sub-menu_arrow-left
+  left: 60px
+
+.top-menu__sub-menu_arrow-right
+  right: 60px
+
+/* 5.2. Sub-menu
+   ========================================================================== */
+
+.sub-menu
+  @include flexbox
+  visibility: hidden
+  opacity: 0
+  position: absolute
+  border: 1px solid #e8e8e8
+  border-radius: 5px
+  background-color: #fff
+  box-shadow: 1px 1px 3px #ddd
+  z-index: 100
+  text-align: left
+  transition: .3s
+
+.sub-menu__arrow
+  display: block
+  top: -5px
+  width: 8px
+  height: 8px
+  background: #fff
+  transform: rotate(45deg)
+  position: absolute
+  border-left: 1px solid #e8e8e8
+  border-top: 1px solid #e8e8e8
+
+.sub-menu__arrow_search-form
+  left: 70px
+
+.sub-menu__col
+  @include flexbox
+  @include flex-direction(column)
+  @include justify-content(space-between)
+  width: 255px
+  padding-top: 8px
+  margin-right: 26px
+  &:last-of-type
+    margin-right: 20px
+
+.sub-menu__h3
+  border-bottom: 1px solid #e8e8e8
+  color: $primary-text
+  text-transform: uppercase
+  margin: 0 0 0 20px
+  padding-top: 10px
+  padding-bottom: 6px
+
+.sub-menu__ul
+  margin: 0 0 20px 20px
+  padding: 0
+  list-style-type: none
+
+.sub-menu__li
+  margin-top: 14px
+
+.sub-menu__link
+  text-decoration: none
+  color: #646464
+  &:hover
+    @extend .color-pink
+
+.sub-menu__banner
+  display: block
+  position: relative
+  margin-top: 5px
+  margin-bottom: 20px
+
+.sub-menu__banner-text
+  position: absolute
+  color: #fff
+  font-size: 22px
+  text-transform: uppercase
+  right: 10px
+  bottom: 12px
+
+/* 6. Promo
+   ========================================================================== */
+
+.promo
+  background-color: #e8e8e8
+  margin-bottom: 100px
+
+.promo__container
+  @include flexbox
+  @include justify-content(flex-start)
+  @include align-items(center)
+  margin: 0 auto
+
+.promo__bg
+  height: 613px
+  background: url("../img/promo.jpg") 37px -51px no-repeat
+
+.promo__text
+  font-size: 40px
+  font-weight: 900
+  border-left: 12px solid $color-pink
+  padding-left: 12px
+  letter-spacing: 1px
+  line-height: 33px
+
+.promo__text_h3
+  font-size: 60px
+  font-weight: 900
+  letter-spacing: 1.5px
+  line-height: 41px
+  margin-top: 0
+  margin-bottom: 18px
+
+/* 7. Category
+   ========================================================================== */
+
+.category
+  margin-bottom: 84px
+
+.category__container
+  margin: 0 auto
+  display: grid
+  grid-template-rows: repeat(3, 261px)
+  grid-template-columns: repeat(2, 560px)
+  grid-gap: 20px
+
+/* 7.1. Banner
+   ========================================================================== */
+
+.banner
+  display: block
+  position: relative
+  text-decoration: none
+  color: #222222
+  overflow: hidden
+  transition: all .3s ease-in
+  &:hover
+    transform: scale(.95)
+    border-radius: 10px
+
+.banner__for-men
+  grid-row: 1 / 3
+  grid-column: 1
+  background: url("../img/banner_formen.jpg")
+
+.banner__accesories
+  grid-row: 3 / 4
+  grid-column: 1 / 2
+  background: url("../img/banner_accesories.jpg") top right no-repeat #dadad2
+
+.banner__women
+  grid-row: 1 / 2
+  grid-column: 2
+  background: url("../img/banner_women.jpg")
+
+.banner__for-kids
+  grid-row: 2 / 4
+  grid-column: 2
+  background: url("../img/banner_forkids.jpg")
+
+.badge
+  position: absolute
+  top: 26px
+  left: 0
+  background-color: #ffffff
+  padding: 16px 18px
+  text-transform: uppercase
+  font-size: 18px
+  font-weight: 900
+  letter-spacing: 0.45px
+  line-height: 18px
+
+.badge__h3
+  margin-top: 16px
+  margin-bottom: 0
+  font-size: 30px
+  font-weight: 900
+  letter-spacing: 0.75px
+
+/* 8. Featured products
+   ========================================================================== */
+
+.products
+  margin-bottom: 90px
+
+.products__container
+  margin: 0 auto
+
+.products__header,
+.products__footer
+  text-align: center
+
+.products__header
+  margin-bottom: 20px
+
+.products__footer
+  margin-top: 40px
+
+.products__h3
+  margin-top: 16px
+  margin-bottom: 16px
+  font-size: 30px
+  font-weight: 700
+
+.products__h5
+  margin-top: 14px
+  margin-bottom: 0
+  font-size: 14px
+  font-weight: 400
+  color: #9f9f9f
+
+.products__catalog
+  display: grid
+  grid-template-rows: repeat(2, auto)
+  grid-template-columns: repeat(4, auto)
+  grid-row-gap: 40px
+  @include justify-content(space-between)
+
+/* 8.1. Product
+   ========================================================================== */
+
+.product
+  width: 263px
+  height: 364px
+  position: relative
+  margin: 20px 0
+  &:hover
+    box-shadow: 0 5px 8px rgba(0, 0, 0, .16)
+    .product__add,
+    .product__retweet,
+    .product__like
+      @include flexbox
+      @include justify-content(center)
+      @include align-items(center)
+      &:hover
+        background: rgba(255,255,255,.15)
+        box-shadow: 0 0 5px 1px rgba(255, 255, 255, .5)
+    .product__img
+      filter: brightness(.5)
+      transition: filter .1s
+
+.product__add
+  display: none
+  position: absolute
+  top: 97px
+  left: 70px
+  width: 123px
+  height: 39px
+  padding: 0 10px
+  box-sizing: border-box
+  border: 1px solid #fff
+  border-radius: 3px
+  font-size: 13px
+  font-weight: 700
+  color: #fff
+  text-decoration: none
+  z-index: 100
+
+.product__retweet,
+.product__like
+  display: none
+  position: absolute
+  width: 57px
+  height: 39px
+  box-sizing: border-box
+  border: 1px solid #fff
+  border-radius: 3px
+  color: #fff
+  text-decoration: none
+  z-index: 100
+
+.product__retweet
+  top: 144px
+  left: 70px
+
+.product__like
+  top: 144px
+  left: 136px
+
+.product__img
+  display: block
+  width: 263px
+  height: 280px
+  transition: filter 0.2s linear
+
+.product__desc
+  text-align: left
+  padding: 19px 15px
+  text-transform: uppercase
+  &:hover .product__rating
+    display: block
+    width: 70px
+    height: 14px
+
+.product__desc-link
+  text-decoration: none
+  color: #222222
+  &:hover
+    color: #ef5b70
+
+.product__desc-h3
+  margin-top: 0
+  font-size: 13px
+  font-weight: 400
+
+.product__desc-row
+  @include flexbox
+  @include justify-content(space-between)
+
+.product__rating
+  display: none
+
+/* 9. Features
+   ========================================================================== */
+
+.feature
+  margin-bottom: 95px
+
+.feature__container
+  margin: 0 auto
+  @include flexbox
+  background-color: #222224
+
+.feature__wrap
+  @include flexbox
+  @include justify-content(space-between)
+  padding: 70px 0
+
+.feature__banner
+  position: relative
+  @include flex(0, 0, 767px)
+  height: 529px
+  background: url("../img/feature_banner_gradient.png"), url("../img/feature_banner.jpg")
+
+.feature__banner-text
+  position: absolute
+  top: 150px
+  left: 43px
+  font-size: 32px
+  color: #ffffff
+  font-weight: 700
+  text-transform: uppercase
+  letter-spacing: 0.9px
+  line-height: 32px
+
+.feature__banner-text-h3
+  font-size: 54px
+  letter-spacing: 1.5px
+  margin: 0 0 18px
+
+.feature__options
+  @include flexbox
+  @include justify-content(center)
+  @include flex-direction(column)
+
+.feature__box
+  margin: 20px 0
+  @include flexbox
+
+.feature__box_horiz
+  @include flexbox
+  @include align-items(center)
+  @include flex-direction(column)
+
+.feature__box-img
+  width: 30%
+  height: 60px
+
+.feature__box-img_loc
+  @include flexbox
+  @include justify-content(center)
+  @include align-items(flex-start)
+
+.feature__box-desc
+  width: 69%
+  color: #fbfbfb
+  font-weight: 300
+  padding-right: 40px
+  line-height: 1.75em
+
+.feature__box-desc_horiz
+  width: 80%
+  padding-right: 0
+  text-align: center
+
+.feature__box-desc-h3
+  margin: 8px 0 16px 3px
+  font-size: 20px
+  font-weight: 700
+  line-height: 1em
+
+/* 10. Subscribe
+   ========================================================================== */
+
+.subscribe
+  width: 100%
+  background: url("../img/subscribe_bg_gradient.png") no-repeat, url("../img/subscribe_bg.jpg") bottom no-repeat
+  background-size: cover
+
+.subscribe__container
+  @include flexbox
+  margin: 0 auto
+
+.subscribe__panel
+  @include flex(0, 0, 50%)
+  height: 438px
+
+.subscribe__panel-reviews
+  @include flexbox
+  @include align-items(center)
+  border-right: 1px solid #fff
+
+.subscribe__panel-form
+  @include flexbox
+  @include justify-content(center)
+  @include align-items(center)
+
+/* 10.1. Reviews
+   ========================================================================== */
+
+.reviews
+  @include flexbox
+
+.reviews__avatar
+  margin-right: 28px
+
+.reviews__box
+  padding-right: 70px
+
+.reviews__msg
+  font-size: 16px
+  line-height: 1.75em
+
+.reviews__msg_italic
+  font-style: italic
+
+.reviews__name
+  margin-top: 15px
+  margin-bottom: -7px
+  font-size: 16px
+  font-weight: 700
+  line-height: 1em
+  color: $color-pink
+
+.reviews__country
+  font-size: 12px
+  font-weight: 300
+  line-height: 1em
+
+.reviews__toggle
+  @include flexbox
+  margin: 40px 0 50px 0
+
+/* 10.2. Subscribe form
+   ========================================================================== */
+
+.subscribe__form
+  text-align: center
+  font-weight: 600
+
+.subscribe__form-title
+  margin: 0 0 7px
+  font-size: 24px
+
+.subscribe__input
+  margin-top: 30px
+  margin-right: -4px
+  width: 282px
+  border-radius: 23px 0 0 23px
+  background-color: #e1e1e1
+  padding: 18px 28px
+  border: none
+  outline: none
+  &::placeholder
+    opacity: 0.67
+
+/* 11. Bottom menu
+   ========================================================================== */
+
+.bottom-menu
+  margin-top: 100px
+
+.bottom-menu__container
+  @include flexbox
+  margin: 0 auto
+
+.bottom-menu__panel-left
+  @include flex(1, 1, auto)
+  margin-right: 20px
+
+.bottom-menu__panel-right
+  @include flexbox
+  @include justify-content(space-between)
+  @include flex(1, 0, auto)
+
+.bottom-menu__par
+  margin-top: 30px
+  color: #898989
+  font-weight: 300
+  line-height: 2em
+
+.bottom-menu__col
+  margin: 0 40px 0 70px
+
+.bottom-menu__h3
+  font-size: 18px
+  font-weight: 700
+  margin: 14px 0 0
+  color: $color-pink
+
+.bottom-menu__ul
+  margin: 45px 0 0
+  padding: 0
+  list-style-type: none
+
+.bottom-menu__li
+  margin: 30px 0
+
+.bottom-menu__link
+  text-decoration: none
+  color: #898989
+  font-size: 16px
+  &:hover
+    color: #ef5b70
+
+/* 12. Footer
+   ========================================================================== */
+
+.footer
+  @include flexbox
+  @include align-items(center)
+  height: 79px
+  background-color: #e6e6e6
+
+.footer__margin
+  margin-top: 60px
+
+.footer__container
+  @include flexbox
+  @include justify-content(space-between)
+  @include align-items(center)
+  margin: 0 auto
+
+.footer__copy
+  color: #7a7a7a
+  font-size: 16px
+
+/* 12.1. Socials
+   ========================================================================== */
+
+.socials
+  @include flexbox
+
+/* 13. Breadcrumbs
+   ========================================================================== */
+
+.breadcrumbs-section
+  @include flexbox
+  @include align-items(center)
+  height: 148px
+  background-color: #f8f3f4
+
+.breadcrumbs-section__container
+  margin: 0 auto
+  @include flexbox
+  @include justify-content(space-between)
+
+.breadcrumbs-section__h3
+  font-size: 24px
+  text-transform: uppercase
+  color: $color-pink
+
+.breadcrumbs
+  @include flexbox
+  @include align-items(center)
+  margin: 0
+  padding: 0
+  list-style-type: none
+  text-transform: uppercase
+  font-weight: 700
+
+.breadcrumbs__item
+  color: $primary-text
+
+.breadcrumbs__link
+  color: $primary-text
+  text-decoration: none
+  &:hover
+    color: $color-pink
+
+.breadcrumbs__current
+  color: $color-pink
+
+/* 14. Catalog
+   ========================================================================== */
+
+.catalog__container
+  @include flexbox
+  @include justify-content(space-between)
+  margin: 60px auto 110px
+
+.catalog
+  width: 74.3%
+
+.catalog__wrap
+  margin: 20px 0
+  display: grid
+  grid-template-rows: repeat(3, auto)
+  grid-template-columns: repeat(3, auto)
+  @include justify-content(space-between)
+  padding-top: 10px
+
+/* 14.1. Catalog-Menu
+   ========================================================================== */
+
+.catalog-menu
+  width: 22.9%
+  padding-right: 15px
+
+.catalog-menu__block
+  margin-bottom: 18px
+
+.catalog-menu__title
+  cursor: pointer
+  position: relative
+  margin: 0
+  padding: 12px 11px 15px
+  border-bottom: 1px solid #ebebeb
+  border-left: 5px solid $color-pink
+  font-weight: 700
+  text-transform: uppercase
+  color: #6f6e6e
+  &:hover
+    color: $color-pink
+  &::after
+    position: absolute
+    right: 6px
+    @include awesome-free
+    content: "\f0d7"
+    transition: transform .2s linear
+  &:hover::after
+    transform: rotate(180deg)
+    transition: transform .2s linear
+
+.catalog-menu__list
+  margin-top: 0
+  margin-bottom: 20px
+  padding-left: 17px
+  list-style-type: none
+
+.catalog-menu__list_active
+  padding-top: 10px
+
+.catalog-menu__item
+  line-height: 2.5em
+  transition: all 150ms
+
+.catalog-menu__link
+  display: block
+  text-decoration: none
+  color: #6f6e6e
+  &:hover
+    color: #ef5b70
+
+/* 14.2. Filters
+   ========================================================================== */
+
+.catalog__filters
+  display: grid
+  grid-template-columns: repeat(3, 263px)
+  grid-template-rows: 1fr
+  @include justify-content(space-between)
+
+.filter
+  @include flexbox
+  @include align-content(space-between)
+  @include flex-wrap(wrap)
+
+.filter__h3
+  color: #6f6e6e
+  font-weight: 700
+  text-transform: uppercase
+
+.filter__trending
+  @include flexbox
+  @include justify-content(space-between)
+  @include flex-wrap(wrap)
+
+.filter__list
+  margin: 0
+  padding: 0
+  list-style-type: none
+  color: #dfdfdf
+
+.filter__item
+  line-height: 1.5em
+
+.filter__link
+  text-decoration: none
+  color: #6f6e6e
+  &:hover
+    color: #ef5b70
+
+.row-divider
+  width: 100%
+
+.filter__sizes
+  @include flexbox
+  @include justify-content(flex-start)
+  @include flex-wrap(wrap)
+
+.filter__checkbox
+  width: 25%
+  line-height: 1.5em
+
+.filter__checkbox input
+  position: absolute
+  z-index: -1
+  opacity: 0
+
+.filter__checkbox-title
+  display: block
+  position: relative
+  cursor: pointer
+  color: #6f6e6e
+  padding-left: 20px
+  &::before
+    content: ""
+    position: absolute
+    top: 1px
+    left: 0
+    width: 12px
+    height: 12px
+    border: 1px solid #ebebeb
+
+.filter__checkbox input:checked + .filter__checkbox-title::before
+  @include awesome-free
+  content: "\f00c"
+  line-height: 12px
+
+.ui-slider
+  width: 100%
+  height: 6px !important
+  margin-bottom: 15px !important
+  background-color: #f0f0f0 !important
+  border: none !important
+
+.ui-slider-range
+  background-color: $color-pink !important
+
+.ui-slider-handle
+  width: 14px !important
+  height: 14px !important
+  border: 1px solid $color-pink !important
+  border-radius: 7px !important
+  background-color: $color-pink !important
+  outline: none
+
+.filter-range-amounts
+  width: 100%
+  @include flexbox
+  @include justify-content(space-between)
+  color: #6f6e6e
+
+.catalog__sort
+  @include flexbox
+  @include justify-content(flex-start)
+  @include align-items(center)
+  margin-top: 35px
+  background-color: #f3f3f3
+  width: 100%
+  height: 50px
+  & > div
+    @include flexbox
+    margin-left: 10px
+
+.sort__block
+  position: relative
+  height: 30px
+  padding-left: 10px
+  padding-right: 10px
+  line-height: 30px
+  color: #6f6e6e
+  border: 1px solid #ebebeb
+  background-color: #ffffff
+
+.sort__title
+  display: inline-block
+
+.sort__options
+  margin-left: -1px
+  &:hover .sort__list
+    display: block
+
+.sort__value
+  cursor: pointer
+  &::after
+    margin-left: 20px
+
+.sort__list
+  display: none
+  width: 100%
+  position: absolute
+  list-style-type: none
+  margin: 0
+  padding: 0
+  top: 30px
+  left: -1px
+  background-color: #ffffff
+  border: 1px solid #ebebeb
+  z-index: 10
+
+.sort__item
+  padding: 3px 10px
+  color: #6f6e6e
+  cursor: pointer
+  &:hover
+    color: #ef5b70
+
+/* 14.3. Pagination
+   ========================================================================== */
+
+.pagination__wrap
+  @include flexbox
+  @include justify-content(space-between)
+
+.pagination
+  @include flexbox
+  margin: 0
+  padding: 0 8px
+  list-style-type: none
+  box-sizing: border-box
+  border: 1px solid #ebebeb
+  border-radius: 3px
+
+.pagination__link,
+.pagination__link_disabled
+  display: block
+  padding: 12px 7px
+  text-decoration: none
+  color: #c4c4c4
+  font-size: 16px
+  font-weight: 600
+
+.pagination__link:hover
+  color: #ef5b70
+
+.pagination__link_disabled
+  color: #aaaaaa
+
+.pagination__link_active
+  color: #ef5b70
+
+/* 15. Slider
+   ========================================================================== */
+
+.slider
+  @include flexbox
+  @include justify-content(space-between)
+  @include align-items(center)
+  height: 777px
+  background: #f7f7f7
+
+.slider__arrow_prev,
+.slider__arrow_next
+  display: block
+  width: 47px
+  height: 47px
+  text-align: center
+  line-height: 47px
+  font-size: 24px
+  color: #ffffff
+  background: rgba(42, 42, 42, 0.15)
+  cursor: pointer
+  transition: background 0.3s linear
+  &:hover
+    background: rgba(42, 42, 42, 0.5)
+    transition: background 0.3s linear
+
+.slider__container
+  margin: 0 auto
+  text-align: center
+
+/* 16. Product description
+   ========================================================================== */
+
+.description
+  margin-top: -80px
+  margin-left: auto
+  margin-right: auto
+  background: #fff
+  padding-top: 65px
+  padding-bottom: 120px
+  text-align: center
+  border: 1px solid #eaeaea
+
+.description__container
+  width: 640px
+  margin: 0 auto
+
+.collection__name
+  display: inline-block
+  margin-top: 7px
+  padding-bottom: 15px
+  border-bottom: 1px solid #eaeaea
+  font-size: 14px
+  font-weight: 700
+  text-transform: uppercase
+  color: $color-pink
+
+.names-separator
+  position: relative
+  z-index: 5
+  width: 63px
+  height: 3px
+  margin-top: -16px
+  margin-left: auto
+  margin-right: auto
+  background-color: #ef5b70
+
+.product__name
+  color: #4d4d4d
+  font-size: 18px
+  text-transform: uppercase
+  margin-top: 17px
+  margin-bottom: 10px
+
+.description__text
+  color: #5e5e5e
+  margin-top: 65px
+  margin-bottom: 25px
+  line-height: 2em
+
+/* 16.1. Product properties
+   ========================================================================== */
+
+.product-properties
+  @include flexbox
+  @include justify-content(center)
+  @include flex-wrap(wrap)
+  width: 500px
+  margin-right: auto
+  margin-bottom: 28px
+  margin-left: auto
+  color: #2f2f2f
+  font-weight: 700
+  text-transform: uppercase
+
+.property
+  width: 50%
+  text-align: center
+
+.property-price
+  width: 100%
+  margin-top: 32px
+  margin-bottom: 100px
+  font-size: 24px
+  color: $color-pink
+
+/* 16.2. Product options
+   ========================================================================== */
+
+.product-options
+  width: 100%
+  margin-bottom: 28px
+  @include flexbox
+  @include justify-content(space-between)
+
+.option
+  width: 25%
+  text-align: left
+
+.option__block,
+.option__input
+  width: 144px
+  box-sizing: border-box
+  border: 1px solid #eaeaea
+  color: #bcbcbc
+  font-size: 13px
+  margin-top: 15px
+  padding: 11px 9px 11px 14px
+  cursor: pointer
+  outline: none
+
+.option__block
+  position: relative
+  @include flexbox
+  @include justify-content(space-between)
+  &:hover > .option__dropdown
+    display: block
+
+.option__dropdown
+  display: none
+  position: absolute
+  width: 144px
+  margin: 0
+  padding: 0
+  top: 36px
+  left: -1px
+  list-style-type: none
+  border: 1px solid #eaeaea
+  box-sizing: border-box
+  background: #ffffff
+  z-index: 10
+  &:hover
+    display: block
+
+.option__item
+  padding: 9px 9px 9px 14px
+  border-bottom: 1px solid #eaeaea
+  color: #bcbcbc
+  font-size: 13px
+  text-decoration: none
+  &:last-of-type
+    border-bottom: none
+  &:hover
+    color: #ef5b70
+
+.attr_color_red::before,
+.attr_color_green::before,
+.attr_color_cyan::before,
+.attr_color_yellow::before
+  display: inline-block
+  content: ""
+  width: 12px
+  height: 12px
+  margin-right: 9px
+
+.attr_color_red::before
+  background: #ef5b70
+
+.attr_color_green::before
+  background: darkgreen
+
+.attr_color_cyan::before
+  background: cyan
+
+.attr_color_yellow::before
+  background: yellow
+
+.btn__options_submit
+  width: 100%
+  padding-top: 13px
+  padding-bottom: 13px
+  &:hover > .cart_r::before
+    background: url("../img/cart_r_inv.svg") no-repeat
+
+.cart_r
+  @include flexbox
+  @include justify-content(center)
+  @include align-items(center)
+  font-size: 16px
+  font-weight: 700
+  &::before
+    display: inline-block
+    width: 26px
+    height: 24px
+    margin-right: 10px
+    content: ""
+    background: url("../img/cart_r.svg") no-repeat
+    transition: background-image .3s
+
+/* 17. Other offers
+   ========================================================================== */
+
+.products-other
+  margin: 0 auto 70px
+
+.products-other__h3
+  color: #4d4d4d
+  font-size: 24px
+  text-transform: uppercase
+  text-align: center
+  margin-top: 90px
+  margin-bottom: 25px
+  padding-top: 25px
+  padding-bottom: 25px
+
+.products-other__catalog
+  @include flexbox
+  @include justify-content(space-between)
+
+/* 18. Shopping Cart
+   ========================================================================== */
+
+.shopping-cart__container
+  margin: 85px auto 75px
+
+.product-table
+  width: 100%
+  color: #656565
+  font-size: 13px
+  font-weight: 400
+  border-collapse: collapse
+  border: 0
+
+.shopping-cart__table
+  margin-bottom: 44px
+
+.product-table__title
+  color: $primary-text
+  font-weight: 700
+  @extend .product-table__text_uppercase
+
+.product-table__title,
+.product-table__cell
+  padding-top: 20px
+  padding-bottom: 20px
+  vertical-align: center
+  text-align: center
+
+.product-table__row_border
+  border-bottom: 1px solid #eaeaea
+
+.product-table__column-wide
+  width: 41.67%
+  text-align: left
+
+.product-table__column-normal
+  width: 16.67%
+
+.product-table__column-narrow
+  width: 8.33%
+
+.product-table__text_uppercase
+  text-transform: uppercase
+
+.product-table__product-img
+  float: left
+  margin-right: 21px
+
+.product-table__h3
+  @extend .product-table__text_uppercase
+  margin-top: 13px
+  margin-bottom: 30px
+  font-size: 13px
+  font-weight: 400
+  color: $primary-text
+
+.product-table__product-link
+  text-decoration: none
+  color: $primary-text
+  &:hover
+    color: $color-pink
+
+.product-table__product-desc
+  margin-top: 14px
+  margin-bottom: 14px
+  line-height: 22px
+
+.product-table__product-desc_highlight
+  font-weight: 300
+  color: #6f6e6e
+
+.product-table__input-quantity
+  width: 54px
+  box-sizing: border-box
+  border: 1px solid #eaeaea
+  padding: 10px 1px 10px 20px
+  font-size: 13px
+  font-weight: 400
+  color: $primary-text
+
+.shopping-cart__buttons
+  @include flexbox
+  @include justify-content(space-between)
+
+.shopping-cart__misc
+  margin-top: 60px
+  @include flexbox
+  @include justify-content(space-between)
+
+.shopping-cart__section
+  width: 33%
+
+.shopping-cart__misc-h3
+  margin-top: 10px
+  margin-bottom: 10px
+  color: $primary-text
+  font-size: 16px
+  font-weight: 700
+  text-transform: uppercase
+
+.shopping-cart__datalist
+  @extend .shopping-cart__input-text
+  padding-right: 10px !important
+
+.shopping-cart__input-text
+  width: 355px
+  height: 45px
+  box-sizing: border-box
+  border: 1px solid #eaeaea
+  background-color: #fff
+  color: #b1b1b1
+  font-size: 13px
+  font-weight: 300
+  margin: 10px 0
+  padding: 17px
+  line-height: 1em
+  &::placeholder
+    color: #b1b1b1
+    font-size: 13px
+    font-weight: 300
+
+.shopping-cart__coupon-hint
+  line-height: 2em
+
+.shopping-cart__misc_checkout
+  background-color: #f5f3f3
+  padding: 0 43px
+  box-sizing: border-box
+
+.shopping-cart__total
+  border-bottom: 1px solid #e2e2e2
+  text-align: right
+  padding-bottom: 15px
+
+.shopping-cart__misc-h4
+  color: #4a4a4a
+  font-size: 11px
+  font-weight: 400
+  text-transform: uppercase
+
+.shopping-cart__sub-total
+  margin-top: 40px
+  margin-bottom: 14px
+
+.shopping-cart__total-price-margin
+  margin-left: 13px
+
+.shopping-cart__total-highlight
+  @extend .color-pink
+
+/* 19. Checkout
+   ========================================================================== */
+
+.checkout__container
+  margin: 85px auto 90px
+
+.checkout__list
+  padding-left: 0
+  margin: 0
+  list-style-type: none
+
+.checkout__item
+  border-bottom: 1px solid #e8e8e8
+  color: #222222
+  font-size: 16px
+  font-weight: 700
+  position: relative
+
+.checkout__item-title
+  display: block
+  text-decoration: none
+  color: #222222
+  text-transform: uppercase
+  padding-top: 32px
+  padding-bottom: 32px
+  &:hover
+    color: $color-pink
+
+.checkout__item-block
+  @include flexbox
+  margin: -8px 0 79px 35px
+  color: #b3b2b2
+  font-size: 13px
+
+.checkout__item-block-col
+  @include flex-basis(50%)
+
+.checkout__h3
+  font-size: 13px
+  color: #222222
+  text-transform: uppercase
+  margin: 15px 0
+
+.checkout__checkbox
+  padding: 13px 0
+
+.checkout__h4
+  font-size: 12px
+  color: #222222
+  text-transform: uppercase
+  margin-top: 20px
+  margin-bottom: 20px
+
+.checkout__checkbox-input
+  position: absolute
+  z-index: -1
+  opacity: 0
+  margin: 10px 0 0 7px
+
+.checkout__checkbox-label
+  position: relative
+  display: block
+  padding: 0 0 0 28px
+  cursor: pointer
+  line-height: 12px
+
+.checkout__checkbox-label:before
+  content: ''
+  position: absolute
+  top: -3px
+  left: 0
+  width: 12px
+  height: 12px
+  border: 2px solid #555555
+  border-radius: 50%
+  background: #FFF
+
+.checkout__checkbox-label:after
+  content: ''
+  position: absolute
+  top: 1px
+  left: 4px
+  width: 8px
+  height: 8px
+  background: #222
+  border-radius: 50%
+  opacity: 0
+
+.checkout__checkbox-input:checked + .checkout__checkbox-label:after
+  opacity: 1
+
+.checkout__features
+  @extend .checkout__checkbox
+  line-height: 2em
+
+.checkout__login-label
+  padding-top: 4px
+  display: block
+
+.checkout__login-title
+  display: block
+  @extend .checkout__h4
+
+.required-before:after
+  color: #ff0d0d
+  content: " *"
+
+.checkout__input_text
+  display: block
+  width: 390px
+  height: 45px
+  line-height: 45px
+  box-sizing: border-box
+  padding: 0 10px
+  border: 1px solid #eaeaea
+  background-color: #ffffff
+  margin-bottom: 7px
+
+.checkout__required-text
+  color: #ff0d0d
+  padding-top: 15px
+  padding-bottom: 32px
+
+.forgot-password
+  color: #222222
+  font-size: 14px
+  font-weight: 400
+  margin-left: 32px
+  text-decoration: none
+  &:hover
+    @extend .color-pink
+
+/* 20. Buttons
+   ========================================================================== */
+
+.btn
+  border: none
+  cursor: pointer
+  outline: none
+  text-align: center
+
+.btn__primary
+  color: #fff
+  background-color: $color-pink
+  border: 1px solid transparent
+  transition: all .3s
+  &:hover
+    color: $color-pink
+    background-color: #fff
+    border: 1px solid $color-pink
+
+.btn__secondary
+  color: #4a4a4a
+  background-color: #fff
+  border: 1px solid #eaeaea
+  transition: all .3s
+  &:hover
+    color: $color-pink
+    border: 1px solid $color-pink
+
+.btn__primary_inverse
+  color: $color-pink
+  background-color: #fff
+  border: 1px solid $color-pink
+  transition: all .3s
+  &:hover
+    color: #fff
+    background-color: $color-pink
+    border: 1px solid #fff
+
+/* 20.1. My account
+   ========================================================================== */
+
+.btn__primary_my-account
+  height: 38px
+  font-size: 15px
+  padding-left: 19px
+  padding-right: 12px
+  border-radius: 3px
+
+.btn__primary_my-account-caret:after
+  margin-left: 8px
+
+/* 20.2. Search
+   ========================================================================== */
+
+.search-form__btn
+  height: 38px
+  border: 1px solid #e6e6e6
+
+.search-form__btn-drop
+  position: relative
+  display: inline-block
+  box-sizing: border-box
+  padding-top: 10px
+  padding-right: 8px
+  padding-left: 15px
+  border-radius: 3px 0 0 3px
+  background-image: linear-gradient(to bottom, #f9f9f9 0%, #f5f5f5 100%)
+  font-weight: 300
+  cursor: pointer
+  &:hover > .sub-menu
+    visibility: visible
+    opacity: 1
+
+.search-form__btn-drop-caret:after
+  margin-left: 8px
+
+.search-form__btn-submit
+  padding-right: 11px
+  padding-left: 11px
+  background-color: #ffffff
+  border-radius: 0 3px 3px 0
+  color: #a4a4a4
+
+/* 20.3. Cart Menu
+   ========================================================================== */
+
+.cart__main-btn
+  width: 32px
+  height: 32px
+  padding: 0
+  @extend .btn
+  background-color: transparent
+  transition: transform .3s
+  &:hover
+    transform: translateY(-3px)
+
+.cart__btn
+  display: block
+  width: 225px
+  height: 50px
+  margin: 5px 0
+  line-height: 50px
+  text-decoration: none
+  text-align: center
+  font-size: 14px
+  font-weight: 700
+  color: #4a4a4a
+  text-transform: uppercase
+  background-color: #fff
+  border: 1px solid #eaeaea
+  &:hover
+    color: #f16d7f
+    border: 1px solid #f16d7f
+
+/* 20.4. Featured products
+   ========================================================================== */
+
+.btn__product
+  display: inline-block
+  font-size: 16px
+  font-weight: 700
+  padding: 18px 19px 18px 24px
+  text-decoration: none
+
+/* 20.5. Reviews
+   ========================================================================== */
+
+.reviews__btn
+  display: block
+  width: 38px
+  height: 4px
+  background-color: #d6d6d6
+  margin-right: 13px
+
+.reviews__btn_active
+  background-color: $color-pink
+
+/* 20.6. Subscribe form
+   ========================================================================== */
+
+.btn__subscribe
+  padding: 17px 20px
+  border-radius: 0 23px 23px 0
+
+/* 20.7. Socials
+   ========================================================================== */
+
+.socials__btn
+  width: 32px
+  height: 32px
+  color: #b2b2b2
+  font-size: 16px
+  line-height: 32px
+  margin-left: 8px
+  text-align: center
+
+.socials__btn_enabled
+  display: block
+  background-color: #fff
+  text-decoration: none
+  transition: .3s
+  &:hover
+    color: #f7f7f8
+    background-color: $color-pink
+
+.socials__btn_disabled
+  background-color: #eee
+
+/* 20.8. Pagination (view-all)
+   ========================================================================== */
+
+.btn__view-all
+  padding: 12px 44px
+  font-size: 16px
+  font-weight: 600
+  border-radius: 3px
+  box-sizing: border-box
+  text-decoration: none
+
+/* 20.9. Product options
+   ========================================================================== */
+
+.btn__options_submit
+  width: 100%
+  padding-top: 13px
+  padding-bottom: 13px
+  &:hover > .cart_r::before
+    background: url("../img/cart_r_inv.svg") no-repeat
+
+/* 20.10. Shopping Cart
+   ========================================================================== */
+
+.btn__shopping-cart_big
+  color: #4a4a4a
+  font-size: 14px
+  font-weight: 700
+  text-transform: uppercase
+  text-decoration: none
+  padding: 19px 39px
+
+.btn__shopping-cart_small
+  font-size: 11px
+  font-weight: 700
+  text-transform: uppercase
+  padding: 12px 17px
+
+.btn__shopping-cart_coupon
+  margin-top: 15px
+
+.btn__shopping-cart_checkout
+  width: 100%
+  height: 50px
+  display: block
+  line-height: 50px
+  text-transform: uppercase
+  text-decoration: none
+  margin-top: 20px
+  font-size: 16px
+  font-weight: 700
+
+/* 20.11. Checkout
+   ========================================================================== */
+
+.checkout__btn_gray
+  width: 180px
+  height: 50px
+  font-weight: 700
+  text-transform: uppercase
+  cursor: pointer
+
+/* 21. Misc
+   ========================================================================== */
+
+.input
+  box-sizing: border-box
+
+.color-pink
+  color: $color-pink
+
+.text_grey
+  color: #b9b9b9
+
+.arrow-right::after
+  @include awesome-free
+  content: "\f30b"
+  margin-left: 8px
+
+.caret-down::after
+  @include awesome-free
+  content: "\f0d7"
+
+.dollar::before
+  content: "\0024"
